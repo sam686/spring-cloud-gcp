@@ -189,6 +189,7 @@ public class PubSubSubscriberTemplate
 	@Override
 	public <T> List<ConvertedAcknowledgeablePubsubMessage<T>> pullAndConvert(String subscription, Integer maxMessages,
 			Boolean returnImmediately, Class<T> payloadType) {
+		System.out.println("Requested from pull " + maxMessages);
 		List<AcknowledgeablePubsubMessage> ackableMessages = this.pull(subscription, maxMessages, returnImmediately);
 
 		return ackableMessages.stream().map(
