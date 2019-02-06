@@ -30,6 +30,7 @@ import com.google.cloud.pubsub.v1.Subscriber;
 import com.google.cloud.pubsub.v1.stub.GrpcSubscriberStub;
 import com.google.cloud.pubsub.v1.stub.SubscriberStub;
 import com.google.cloud.pubsub.v1.stub.SubscriberStubSettings;
+import com.google.pubsub.v1.ModifyAckDeadlineRequest;
 import com.google.pubsub.v1.ProjectSubscriptionName;
 import com.google.pubsub.v1.PullRequest;
 import org.threeten.bp.Duration;
@@ -241,6 +242,7 @@ public class DefaultSubscriberFactory implements SubscriberFactory {
 	@Override
 	public SubscriberStub createSubscriberStub() {
 		SubscriberStubSettings.Builder subscriberStubSettings = SubscriberStubSettings.newBuilder();
+subscriberStubSettings.
 
 		if (this.credentialsProvider != null) {
 			subscriberStubSettings.setCredentialsProvider(this.credentialsProvider);
@@ -271,8 +273,9 @@ public class DefaultSubscriberFactory implements SubscriberFactory {
 					this.subscriberStubRetrySettings);
 		}
 
+
 		try {
-			return GrpcSubscriberStub.create(subscriberStubSettings.build());
+			return GrpcSubscriberStub.create(subscriberStubSettings.build()).ack
 		}
 		catch (IOException ex) {
 			throw new RuntimeException("Error creating the SubscriberStub", ex);

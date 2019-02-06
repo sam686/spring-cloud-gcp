@@ -73,7 +73,7 @@ public class ReactiveReceiverApplication {
 
 	// TODO: can demand be 0?
 
-	@Bean
+	//@Bean
 	ApplicationRunner reactiveRunner() {
 		return (args) -> {
 			System.out.println("********** I have no idea what I am doing; pub sub template = " + template);
